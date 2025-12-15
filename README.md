@@ -65,6 +65,9 @@ A screen-recorded demo video showing the full working of the application is prov
 ---
 
 ## How to Run
+
+
+
 1. Download/clone the repository  
 2. Create a virtual environment and install dependencies:
 
@@ -76,3 +79,5 @@ A screen-recorded demo video showing the full working of the application is prov
 5. Run the app: `python app.py`
 
 6. Open http://127.0.0.1:5000/events in the browser
+
+> Note: MySQL must be installed locally and running before starting the application.
