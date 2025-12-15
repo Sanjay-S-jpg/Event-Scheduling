@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h5 class="card-title mb-4">Resource Utilisation Report</h5>
+
+        <form method="POST" class="row g-3 mb-4 align-items-end">
+    <div class="col-md-5">
+        <label class="form-label fw-semibold">Start Date</label>
+        <input type="date" name="start" class="form-control" required>
+    </div>
+
+    <div class="col-md-5">
+        <label class="form-label fw-semibold">End Date</label>
+        <input type="date" name="end" class="form-control" required>
+    </div>
+
+    <div class="col-md-2">
+        <button class="btn btn-success w-100">Generate</button>
+    </div>
+</form>
+
+
+        {% if data %}
+        <table class="table table-hover">
+            <thead class="table-light">
+                <tr>
+                    <th>Resource</th>
+                    <th>Total Hours</th>
+                    <th>Upcoming Bookings</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for r, h, u in data %}
+                <tr>
+                    <td>{{ r }}</td>
+                    <td>{{ h }}</td>
+                    <td>{{ u }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

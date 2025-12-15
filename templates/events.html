@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="row">
+    <!-- LEFT: ADD EVENT -->
+    <div class="col-md-4">
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h5 class="card-title mb-3">Add Event</h5>
+
+                <form method="POST">
+                    <input name="title" class="form-control mb-2" placeholder="Event Title" required>
+
+                    <label class="form-label">Start Time</label>
+                    <input type="datetime-local" name="start" class="form-control mb-2" required>
+
+                    <label class="form-label">End Time</label>
+                    <input type="datetime-local" name="end" class="form-control mb-2" required>
+
+                    <textarea name="description" class="form-control mb-3" placeholder="Description"></textarea>
+
+                    <button class="btn btn-primary w-100">Create Event</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- RIGHT: EVENTS TABLE -->
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title mb-3">Events</h5>
+
+                <table class="table table-hover">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Title</th>
+                            <th>Start</th>
+                            <th>End</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for e in events %}
+                        <tr>
+                            <td>{{ e.title }}</td>
+                            <td>{{ e.start_time }}</td>
+                            <td>{{ e.end_time }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
